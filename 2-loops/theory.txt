@@ -1,0 +1,87 @@
+
+Time: 45 mins
+
+Topics:
+    - each
+    - loop, break
+    - while
+    - Ranges
+
+---
+
+Loops are used when we need to execute something again and again. 
+Looping in Ruby is very different from C or Javascript.
+We mainly use 'iterators'
+
+Example:
+
+    5.times{ puts "hello world" }
+
+The `times` method here is an iterator, and the code between the curly braces is a block. We are actually `passing the block to the iterator`. More on this later.
+
+
+## The `each` iterator
+
+The `each` iterator is available on array like objects.
+It iterates through the array, and executes the block for each element.
+
+In other words, the code between the curly-braces is executed again and again.
+
+    arr = [1, 2, 3, 4]
+    arr.each{ |i|
+      square = i ** 2
+      puts square
+    }
+
+The above code loops through the array arr, and prints squares of all the numbers. And each time, it maintains the iterated value in the variable `i`.
+The variable `i` here is the so called 'block argument'
+
+So to do looping, we try to express the data as a list, and call the iterator on it. Unlike the `for` loop in C/Javascript, there is no need to keep track of the end point or the conditionals.
+
+
+## The `loop` loop
+
+`loop` gives us an infinite loop. We'll have to set-up break and increaments on our own. The following is an equivalent of a C for loop:
+
+    c = 0
+    loop {
+      puts "hello"
+      c += 1               # Increament like this. There's no ++ in Ruby
+      break if c == 10     # Single line if is allowed
+    }
+
+`loop` is more useful when we don't know the size of the input.
+
+    loop{
+      input = gets
+      input = input.chomp  # Used to remote the \n at last
+      break if z == ""
+      puts input
+    }
+
+## while loop
+
+Similar to the `while` loop in c:
+
+    c = 0
+    while c < 10
+      puts "hello"
+      c += 1
+    end
+
+
+## Ranges
+
+Range is a data structure similar to Array.
+We can express a continuous list neatly using a range.
+
+    1..5      # Range of number 1 to 5: 1,2,3,4,5
+    'a'..'z'  # Range of characters a to z
+
+Ranges can be converted to arrays using `to_a` method
+
+    (1..5).to_a  # => [1,2,3,4,5]
+
+Both the starting and ending values are included in a range
+
+

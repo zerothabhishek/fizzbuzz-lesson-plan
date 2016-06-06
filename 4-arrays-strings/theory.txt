@@ -1,0 +1,198 @@
+
+Time: 45 mins
+
+Topics:
+    String (split, join, chars, size, +, reverse, upcase, downcase)
+    Array (<<, each, map, size, max, uniq, index, detect, bsearch, sort)
+
+Documentaion: 
+    String
+    Array, Enumerable
+
+--------------------------------
+
+# Ruby String
+
+Strings are independent data structures in Ruby - not like C where a string is treated as a list of characters.
+
+   str = "abc"
+   str = 'xyz'  # both same
+
+Several methods for manipulations are provided by the standard library.
+
+## Splitting strings
+
+Using split, we get an array of parts
+
+   str = "/home/user/code/sample.rb"
+   str.split("/") #=> ["", "home", "user", "code", "sample.rb"]
+
+We can also get a list of all characters
+
+    str = "abc"
+    str.chars   #=> ["a", "b", "c"]
+
+
+## Joining/concatenating strings
+
+Using join, we can join an array of using a separator
+
+   arr = ["", "home", "user", "code", "sample.rb"]
+   arr.join("/")  #=> "/home/user/code/sample.rb"
+
+We can also concatenate using +
+
+   str1 = "Hello"
+   str2 = "World"
+   str3 = str1 + str2 #=> "HelloWorld"
+
+
+## Interpolation
+
+We can insert a string within another one using interpolation:
+
+   name = "John"
+   str = "Hello #{name}"  #=> "Hello John"
+   puts str
+
+We can interpolate numbers and other types of objects too:
+
+   num = 3
+   str = "There were #{num} errors" #=> "There were 3 errors"
+   puts str
+
+
+## Indexed access
+
+We can read a string as if it were an array of characters:
+
+    str = "abcdef"
+    str[0]        # => "a"
+    str[1]        # => "b"
+    str[1..3]     # => "bcd"
+    str[0..-2]    # => "abcde"   # negative indexes count backwards
+
+
+## Other useful methods:
+
+length:      "abc".length     #=> 3
+
+upcase:      "abc".upcase     #=> "ABC"
+downcase:    "ABC".downcase   #=> "abc"
+capitalize:  "abc".capitalize #=> "Abc"
+
+reverse:     "abc".reverse   #=> "cba"
+comparison:  "abc" == "abc"  #=> true
+
+chomp:       "abc\n".chomp   #=> "abc"  # removes \n from last if present
+
+Substitution:
+
+    "hello world".gsub(" ", "-")  #=> "hello-world"
+
+
+Note that most of these methods don't perform in-place changes.
+The original string is left unchanged, and a new string is returned with the changes.
+
+
+--------------------------------
+
+# Ruby Array
+
+Array is a collection of objects. Objects can be related or unrelated.
+Arrays are ordered and indexed.
+
+    arr = [1, "2", "hello", {"key" => "value"}, 1..5 ]  # a valid array
+
+
+## Adding to array:
+
+Using <<
+
+    arr = [1,2,3]
+    arr << 4      #=> [1, 2, 3, 4]
+
+Using `push`
+
+    arr = [1,2,3]
+    arr.push(4)   #=> [1, 2, 3, 4]
+
+
+## Accessing from array:
+
+Using index:
+
+    arr = [1, 2, 3, 4]
+    arr[0]               #=> 1
+    arr[-1]              #=> 4
+    arr[1..2]            #=> [2, 3]
+    arr[100]             #=> nil
+
+Get the first few:
+
+    arr.take(2)        #=> [1, 2]
+
+## Finding/Searching in an array:
+
+We can use the `index` method to get the index of an element
+Or use `detect` method to get an element that matches a criteria
+
+    arr = [1, 2, 3, 4]
+    arr.index(3)              # => 1
+    arr.detect{ |x| x > 3 }   # => 4
+    arr.bsearch{ |x| x == 2 } # => 2  # uses binary search
+
+## Filtering:
+
+`select` : Get a sub array based on some condition:
+
+    arr = [10, 20, 30, 40]
+    arr.select{ |x| x > 25 }  #=> [30, 40]
+
+## Sorting:
+
+Sorting is available within the library.
+Implements the quick-sort algorithm, which generally quite efficient. 
+
+    arr = [3, 10, 52, 0]
+    arr.sort                 # [0, 3, 10, 52] # gives sorted array
+
+Using `sort_by` we can also sort on a property instead of the value:
+
+    arr = [-2, 10, -33, 20]
+    arr.sort_by{|x| x.abs }     # [2, 10, 20, 33]
+
+
+## Transformation using maps:
+
+If we need to transform the array to a different list using same logic on all elements, we can use `map`. For example -
+
+We can get squares of all elements:
+
+     arr = [1, 2, 3, 4]
+     arr.map{ |x|  x**2 }   #=> [1, 4, 9, 16]
+
+Or increament every value by 1
+
+    arr = [1, 2, 3, 4]
+    arr.map{ |x| x+1 }      #=> [2, 5, 10, 17]
+
+Or we can convert string list to integers
+
+    arr = ['20', '30', '44']
+    arr.map{ |x| x.to_i  }   #=> [20, 30, 44]  # to_i: string to integer
+
+
+## Other useful methods:
+
+size:    [1, 2, 3].size       #=> 3
+reverse: [1, 2, 3].reverse    #=> [3, 2, 1]
+join:    [1, 2, 3].join("-")  #=> "1-2-3"
+max:     [1, 2, 3].max        #=> 3 
+uniq:    [1, 1, 2, 3].uniq    #=> [1, 2, 3]
+compact: [1, nil, 2].compact  #=> [1, 2]
+
+
+
+
+

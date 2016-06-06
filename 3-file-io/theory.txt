@@ -1,0 +1,60 @@
+
+Time: 15 mins
+
+Topics:
+    - Command line input (ARGV)
+    - File reading
+
+---
+
+## ARGV
+
+ARGV is an array that holds the arguments passed while the ruby program is invoked from command line.
+
+Example: sample.rb
+
+    puts ARGV
+
+Execute:
+
+    ruby sample.rb hello 12
+    #prints hello 12
+
+The program name and `ruby` are not counted
+
+
+## Reading files
+
+Read as a big string
+
+    str = File.read("sample")
+
+
+Read as lines
+(most useful)
+
+    lines = File.readlines("sample")  # lines = array of lines, separated by \n
+    lines.each do |line|
+      ## My code
+    end
+
+
+Open the file and read line by line:
+(use when files are big)
+
+    File.open("sample", "r") do |f|
+      f.each_line do |line|
+        ## My code
+      end
+    end
+
+
+## ARGF
+
+ARGF is the file descriptor of the standard input.
+To read from standard input, we can use:
+
+    ARGF.read
+
+This will block the program until STDIN comes up with something
+

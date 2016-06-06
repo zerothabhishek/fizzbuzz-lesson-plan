@@ -1,0 +1,56 @@
+
+Time: 15 mins
+
+Topics:
+    - Space and time complexity
+    - What next
+
+---
+
+## Space and time complexity
+
+- Space and time complexity is a measure of how efficient our algorithm is.
+- Time complexity is expressed in the Big-O notation
+- We say an algorithm is O(n^2) if the time taken is proportional to the square of the size of input
+
+
+## O(n^2) example:
+
+Selection sort:
+
+    arr = File.read(ARGV[0]).split(",")
+    n = arr.size
+    
+    n.times do |start|
+      min = start  
+      start.upto(n-1) do |i|  
+        min = i if arr[i] < arr[min]
+      end  
+      arr[start], arr[min] = arr[min], arr[start]  # swap
+    end 
+
+## Note:
+
+- O(n^2) is not a good time-complexity
+- Time complexity can vary across data sets too
+- A general rule of thumb: variable sized nested loops can be increasing time complexity
+- Also, for many operations, better time complexity is achieved by compromising on space (eg: hashing, indexing)
+- Keep an eye on complexity while implementing. Interviewers also like the subject
+
+
+
+## What next:
+
+
+Ruby programming:
+  ​- Codeacademy Ruby course: https://www.codecademy.com/learn/ruby
+  - Learn about Hash, and blocks
+  - Implement a gem
+
+Programming puzzles:
+  - https://www.codeeval.com
+  - https://codility.com
+  - https://www.hackerrank.com
+  - https://projecteuler.net
+
+

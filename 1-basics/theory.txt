@@ -1,0 +1,133 @@
+
+## Time: 30mins
+
+## Topics:
+
+  - hello world
+  - variables
+  - Branching
+  - puts, p
+  - Define a method
+  - IRB
+
+---
+
+
+
+## Hello world
+
+Ruby is an interpreted programming language. We write a program, and execute it from its source. There is no separate compilation step.
+
+Example:
+- Create a file called hello.rb
+- Add the following code:
+
+    puts "hello world"
+
+- Save it
+- Execute it from the command line:
+
+    ruby hello.rb
+
+
+
+## Variables
+
+Ruby is a dynamically typed language.
+Variables dont need to be declared with their data-type.
+Variables assume the type of their data.
+
+Example:
+
+     a = 2
+     b = 3
+     c = a + b
+     puts c
+
+
+## Printing values
+
+We use `puts` to print values to the standard output.
+
+Example:
+
+   a = "Hello Abhishek"
+   puts a
+   puts a, "How are you?"
+
+
+## Branching:
+
+Branching is done using the `if` statement.
+Syntax:
+
+    if <condition>
+      # do something
+    end
+
+If the condition gives a true value, the code within the if block is executed.
+There is also an `else`
+
+    if <condition>
+      # do this
+    else
+      # do that
+    end
+
+Example:
+
+    a = 2
+    if a > 0
+      puts "Positive"
+    else
+      puts "Negative"
+    end
+
+
+## Defining a method
+
+To group code that can be executed later, we use methods
+A method can be defined with `def` keyword.
+Methods are invoked from their names - placing parenthesis is optional.
+The result of the last line is returned from a method 
+
+Example:
+
+    def hello(a)
+      puts a
+    end
+
+    hello a
+    hello(a)  # same 
+
+
+## IRB
+
+IRB (Interactive Ruby) is a command line console for Ruby.
+We can execute live code on IRB.
+IRB is useful in debugging and experimenting
+
+Example:
+- Type `irb` in the shell
+- It should show a prompt like this:
+
+    irb(main):001:0>
+
+- Now type all the above examples line by line on it:
+
+    puts "hello world"
+
+    a = 2
+    b = 3
+    c = a + b
+    puts c
+
+    def hello
+      puts "hello world"
+    end
+
+    hello
+
+
+
+
